@@ -275,7 +275,7 @@ puts ""
 batman_movies = Movie.all
 
 for movie in batman_movies
-   puts "#{movie.title}         #{movie.year_released}      #{movie.rating}     #{movie.studio_id}" 
+   puts "#{movie.title} / #{movie.year_released} / #{movie.rating} / #{Studio.find(movie.studio_id).name}" 
 end
 
 # Prints a header for the cast output
@@ -286,3 +286,7 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+for role in Role.all
+   puts "#{Movie.find(role.movie_id).title} / #{Actor.find(role.actor_id).name} / #{role.character_name}"
+end
